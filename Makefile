@@ -6,3 +6,6 @@ brain-games: # запуск игры
 
 publish: # фейковая публикация
 	npm publish --dry-run
+
+lint: # проверка линта
+	npx eslint .
