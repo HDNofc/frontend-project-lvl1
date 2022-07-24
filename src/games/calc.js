@@ -1,5 +1,4 @@
 import getRandomNumberFromInterval from '../utils/getRandomNumberFromInterval.js';
-import greetings, { main } from '../index.js';
 
 const getRandomQuestion = (operation) => {
   switch (operation) {
@@ -28,7 +27,7 @@ const getRandomQuestion = (operation) => {
  * @param {number} amount - количество вопросов
  * @returns {Array<[number, string]>} - пара [вопрос, ответ]
  */
-const getQuestions = (amount) => {
+const calc = (amount) => {
   const operations = ['+', '-', '*'];
 
   const questions = [];
@@ -39,14 +38,6 @@ const getQuestions = (amount) => {
   }
 
   return questions;
-};
-
-const calc = (numberOfQuestions) => {
-  const username = greetings();
-  const rules = 'What is the result of the expression?';
-
-  const questions = getQuestions(numberOfQuestions);
-  main({ rules, questions, username });
 };
 
 export default calc;

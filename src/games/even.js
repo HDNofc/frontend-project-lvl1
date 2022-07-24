@@ -1,13 +1,12 @@
 import isEven from '../utils/isEven.js';
 import getRandomNumberFromInterval from '../utils/getRandomNumberFromInterval.js';
-import greetings, { main } from '../index.js';
 
 /**
  * Генерирует вопросы и ответы
  * @param {number} amount - количество вопросов
  * @returns {Array<[number, string]>} - пара [вопрос, ответ]
  */
-const getQuestions = (amount) => {
+const even = (amount) => {
   const booleanAnswers = {
     true: 'yes',
     false: 'no',
@@ -21,14 +20,6 @@ const getQuestions = (amount) => {
   }
 
   return questions;
-};
-
-const even = (numberOfQuestions) => {
-  const username = greetings();
-  const rules = 'Answer "yes" if the number is even, otherwise answer "no".';
-
-  const questions = getQuestions(numberOfQuestions);
-  main({ rules, questions, username });
 };
 
 export default even;

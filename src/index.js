@@ -1,4 +1,9 @@
 import readlineSync from 'readline-sync';
+import calc from './games/calc.js';
+import even from './games/even.js';
+import gcd from './games/gcd.js';
+
+const ROUNDS = 3;
 
 const greetings = () => {
   console.log('Welcome to the Brain Games!');
@@ -8,7 +13,30 @@ const greetings = () => {
   return name;
 };
 
-export const main = ({ rules, questions, username }) => {
+const main = (gameName) => {
+  const username = greetings();
+
+  let rules;
+  let questions;
+
+  switch (gameName) {
+    case 'even':
+      rules = 'Answer "yes" if the number is even, otherwise answer "no".';
+      questions = even(ROUNDS);
+      break;
+    case 'calc':
+      rules = 'What is the result of the expression?';
+      questions = calc(ROUNDS);
+      break;
+    case 'gcd':
+      rules = 'Find the greatest common divisor of given numbers.';
+      questions = gcd(ROUNDS);
+      break;
+    default:
+      rules = 'Answer "yes" if the number is even, otherwise answer "no".';
+      questions = even(ROUNDS);
+  }
+
   console.log(rules);
 
   // eslint-disable-next-line no-restricted-syntax
@@ -28,4 +56,4 @@ export const main = ({ rules, questions, username }) => {
   console.log(`Congratulations, ${username}!`);
 };
 
-export default greetings;
+export default main;
