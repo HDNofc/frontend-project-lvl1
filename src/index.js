@@ -2,6 +2,7 @@ import readlineSync from 'readline-sync';
 import calc from './games/calc.js';
 import even from './games/even.js';
 import gcd from './games/gcd.js';
+import progression from './games/progression.js';
 
 const ROUNDS = 3;
 
@@ -31,6 +32,10 @@ const main = (gameName) => {
     case 'gcd':
       rules = 'Find the greatest common divisor of given numbers.';
       questions = gcd(ROUNDS);
+      break;
+    case 'progression':
+      rules = 'What number is missing in the progression?';
+      questions = progression(ROUNDS);
       break;
     default:
       rules = 'Answer "yes" if the number is even, otherwise answer "no".';
