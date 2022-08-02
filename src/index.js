@@ -3,6 +3,7 @@ import calc from './games/calc.js';
 import even from './games/even.js';
 import gcd from './games/gcd.js';
 import progression from './games/progression.js';
+import prime from './games/prime.js';
 
 const ROUNDS = 3;
 
@@ -36,6 +37,10 @@ const main = (gameName) => {
     case 'progression':
       rules = 'What number is missing in the progression?';
       questions = progression(ROUNDS);
+      break;
+    case 'prime':
+      rules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+      questions = prime(ROUNDS);
       break;
     default:
       rules = 'Answer "yes" if the number is even, otherwise answer "no".';
