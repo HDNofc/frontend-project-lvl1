@@ -19,38 +19,38 @@ const main = (gameName) => {
   const username = greetings();
 
   let rules;
-  let questions;
+  let game;
 
   switch (gameName) {
     case 'even':
       rules = 'Answer "yes" if the number is even, otherwise answer "no".';
-      questions = even(ROUNDS);
+      game = even;
       break;
     case 'calc':
       rules = 'What is the result of the expression?';
-      questions = calc(ROUNDS);
+      game = calc;
       break;
     case 'gcd':
       rules = 'Find the greatest common divisor of given numbers.';
-      questions = gcd(ROUNDS);
+      game = gcd;
       break;
     case 'progression':
       rules = 'What number is missing in the progression?';
-      questions = progression(ROUNDS);
+      game = progression;
       break;
     case 'prime':
       rules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-      questions = prime(ROUNDS);
+      game = prime;
       break;
     default:
       rules = 'Answer "yes" if the number is even, otherwise answer "no".';
-      questions = even(ROUNDS);
+      game = even;
   }
 
   console.log(rules);
 
-  // eslint-disable-next-line no-restricted-syntax
-  for (const [question, answer] of questions) {
+  for (let i = 0; i < ROUNDS; i += 1) {
+    const [question, answer] = game();
     console.log(`Question: ${question}`);
     const userAnswer = readlineSync.question('Your answer: ');
 

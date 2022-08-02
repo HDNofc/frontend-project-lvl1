@@ -24,23 +24,14 @@ const getGreatestCommonDivisor = (a, b) => {
   return intersections.at(-1);
 };
 
-/**
- * Генерирует вопросы и ответы
- * @param {number} amount - количество вопросов
- * @returns {Array<[number, string]>} - пара [вопрос, ответ]
- */
-const gcd = (amount) => {
-  const questions = [];
-  for (let i = 0; i < amount; i += 1) {
-    const a = getRandomNumberFromInterval(1, 100);
-    const b = getRandomNumberFromInterval(1, 100);
+const gcd = () => {
+  const a = getRandomNumberFromInterval(1, 100);
+  const b = getRandomNumberFromInterval(1, 100);
 
-    const question = `${a} ${b}`;
-    const answer = getGreatestCommonDivisor(a, b).toString();
-    questions.push([question, answer]);
-  }
+  const question = `${a} ${b}`;
+  const answer = getGreatestCommonDivisor(a, b).toString();
 
-  return questions;
+  return [question, answer];
 };
 
 export default gcd;
